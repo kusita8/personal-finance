@@ -1,0 +1,98 @@
+.button {
+    color: inherit;
+    font-family: inherit;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 1.2rem;
+    padding: 0.9rem 0.8rem;
+    cursor: pointer;
+    transition: background $tt ease;
+    position: relative;
+
+    &__secondary-copy {
+        margin-right: 0.4rem;
+        font-weight: 600;
+    }
+
+    &__icon {
+        margin-left: 0.8rem;
+
+        &.plus {
+            position: relative;
+            width: 1rem;
+            height: 0.2rem;
+            background: $white_main;
+
+            &::after {
+                content: '';
+                position: absolute;
+                height: 1rem;
+                width: 0.2rem;
+                left: 0.4rem;
+                top: -0.4rem;
+                background: inherit;
+            }
+        }
+    }
+
+    &:hover {
+        background: $dark_fifth;
+    }
+
+    &--border {
+        border: 1px solid $white_main;
+    }
+
+    &--icon {
+        padding: 1.5rem;
+
+        &:hover {
+            background: $dark_six;
+        }
+    }
+
+    &--save {
+        font-size: .9rem;
+        padding: 1rem 0;
+        background: $grey_fourth;
+        justify-content: center;
+        align-items: center;
+
+        &:hover {
+            background: $grey_third;
+        }
+    }
+
+    &--th {
+        font-size: 1rem;
+        padding-right: 1.6rem;
+        padding-left: 1.6rem;
+        min-width: 7.5rem;
+        justify-content: center;
+    }
+
+    &:hover {
+        .icon__tooltip {
+            opacity: 1;
+        }
+    }
+
+    .icon__tooltip {
+        position: absolute;
+        background: $grey_five;
+        font-size: .6rem;
+        padding: .4rem 1.4rem;
+        bottom: -1.3rem;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0;
+        transition: opacity $tt ease;
+        z-index: 3;
+    }
+
+
+}

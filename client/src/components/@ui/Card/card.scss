@@ -1,0 +1,57 @@
+.card {
+    padding: 2.2rem 2.4rem 2.9rem;
+    background: $dark_third;
+    border-radius: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+
+    img {
+        margin-bottom: 1.2rem;
+        height: 4rem;
+    }
+
+    p {
+        margin-bottom: 2.1rem;
+        color: $grey_second;
+        font-weight: 600;
+        max-width: 80px;
+        font-size: 1.4rem;
+    }
+
+    span {
+        font-weight: bold;
+        font-size: 1.9rem;
+        line-height: 1.9rem;
+    }
+
+    &__numbers {
+        margin-top: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        width: 100%;
+
+        span {
+            font-size: 1.5rem;
+            line-height: 1.5rem;
+        }
+    }
+
+    &__porcentaje {
+        position: absolute;
+        top: 2.2rem;
+        right: 2.4rem;
+        background: $white_main;
+        font-size: .7rem;
+        line-height: 3.2rem;
+        width: 3.2rem;
+        height: 3.2rem;
+        text-align: center;
+        border-radius: 50%;
+        color: $dark_third;
+        vertical-align: middle;
+        font-weight: bold;
+    }
+}

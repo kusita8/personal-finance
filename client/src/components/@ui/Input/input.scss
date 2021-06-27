@@ -1,0 +1,45 @@
+.input {
+    font-size: 0.8rem;
+    position: relative;
+
+    input {
+        background: none;
+        color: inherit;
+        font-family: inherit;
+        font-size: inherit;
+        outline: none;
+        border: none;
+        border-bottom: 1px solid $white_main;
+        padding-bottom: 0.7rem;
+        width: 100%;
+
+        &:not(:placeholder-shown)+label {
+            transform: translateY(10px);
+        }
+    }
+
+    label {
+        font-weight: 600;
+        position: absolute;
+        left: 0;
+        top: 0;
+        transition: transform $tt ease;
+
+    }
+
+    &:focus-within label,
+    input:not(:placeholder-shown)+label {
+        transform: translate(-0.4rem, -1.7rem) scale(0.8);
+    }
+
+    input:focus+label+.input__options {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    &__label {
+        font-size: .4rem;
+        margin-top: .4rem;
+        display: block;
+    }
+}

@@ -1,0 +1,102 @@
+$sidebar_left_padding: 3.5rem;
+
+.sidebar {
+    flex-basis: 29%;
+    background: $dark_second;
+    padding: $space_top 0 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+
+    &__actividades {
+        padding-left: $sidebar_left_padding;
+        padding-right: $dashboard_space;
+        max-width: 48vw;
+        overflow: hidden;
+
+        .actividades {
+            margin-top: 2.3rem;
+            max-height: 45vw;
+            overflow-y: scroll;
+
+            &__item {
+                transition: transform 500ms ease, opacity 1s ease;
+                display: flex;
+                align-items: center;
+                font-weight: 600;
+                padding: 1rem 0;
+
+                // &:not(:last-of-type) {
+                //     margin-bottom: 2rem;
+                // }
+
+                .actividades__ticker {
+                    border-radius: 50%;
+                    flex: 0 0 5rem;
+                    max-width: 5rem;
+                    height: 5rem;
+                    line-height: 5rem;
+                    text-align: center;
+                    font-size: 1rem;
+                    background: $white_main;
+                    color: $dark_main;
+                    margin-right: 1.2rem;
+                }
+
+                .actividades__copy {
+                    font-size: 1.2rem;
+
+                    p {
+                        margin-bottom: 0.4rem;
+                    }
+
+                    span {
+                        color: $grey_second;
+                    }
+                }
+
+                .actividades__number {
+                    margin-left: auto;
+                    font-size: 1.4rem;
+                }
+            }
+        }
+    }
+
+    &__stats {
+        margin-top: auto;
+
+        .sidebar__stats-title {
+            margin-left: $sidebar_left_padding;
+            margin-bottom: 1.5rem;
+        }
+
+        .other-stats {
+            &__item {
+                background: $dark_eight;
+                padding: 1.8rem $dashboard_space 1.8rem $sidebar_left_padding;
+                display: flex;
+                align-items: center;
+
+                .other-stats__icon {
+                    margin-right: 1.8rem;
+
+                    img {
+                        width: 2.2rem;
+                        height: 2.2rem;
+                    }
+                }
+
+                .other-stats__copy {
+                    font-weight: bold;
+                    font-size: 1.2rem;
+                }
+
+                .other-stats__number {
+                    margin-left: auto;
+                    font-size: 1.4rem;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+}

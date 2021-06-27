@@ -1,0 +1,45 @@
+.stats-form {
+    position: absolute;
+    right: 0;
+    top: 5rem;
+    background: $dark_nine;
+    padding: 2.6rem 2.8rem;
+    width: 30rem;
+    z-index: 1;
+
+    form {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        .input,
+        .select {
+            flex-basis: 10.5rem;
+            max-width: 10.5rem;
+        }
+
+        .input,
+        .select {
+            margin-bottom: 3.5rem;
+        }
+
+        button {
+            flex-basis: 100%;
+        }
+    }
+
+    &--last {
+        margin-bottom: 2.5rem !important;
+    }
+
+    &--date {
+        ::-webkit-calendar-picker-indicator {
+            filter: invert(1);
+        }
+
+        input {
+            padding-bottom: .3rem;
+        }
+
+    }
+}

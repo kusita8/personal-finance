@@ -1,0 +1,13 @@
+.dashboard {
+    padding-left: $dashboard_space;
+    width: 100%;
+
+    &__top {
+        display: flex;
+
+        .dashboard__main-content {
+            flex-basis: 71%;
+            padding-right: $dashboard_space;
+        }
+    }
+}

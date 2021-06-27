@@ -1,0 +1,109 @@
+{
+    "stats": {
+        "title": "Dashboard",
+        "subtitle": "Ultimos movimientos",
+        "buttons": [
+            {
+                "icon": "refresh",
+                "copy_main": "ACTUALIZAR PRECIOS",
+                "on_click": "actualizar",
+                "icon_class_name": "rotate-animation"
+            },
+            {
+                "icon": "chevron_down",
+                "copy_main": "PESOS",
+                "copy_second": "EN:",
+                "on_click": "currency",
+                "button_type": "select",
+                "options": ["PESOS", "DOLARES"]
+            },
+            {
+                "icon_class": "plus",
+                "copy_main": "AGREGAR",
+                "type": "border",
+                "on_click": "agregar"
+            }
+        ],
+        "cards": [
+            {
+                "icon": "graph",
+                "copy": "Total Cuenta",
+                "number": "$450.000"
+            },
+            {
+                "icon": "coins",
+                "copy": "Resultado Hoy",
+                "number": "+5000",
+                "type": "multiple"
+            },
+            {
+                "icon": "goal",
+                "copy": "Resultado Total",
+                "number": "$40.000",
+                "type": "multiple"
+            },
+            {
+                "icon": "bank",
+                "copy": "Total Depositado",
+                "number": "$400.000"
+            }
+        ]
+    },
+    "overview": {
+        "title": "Overview"
+    },
+    "acciones": {
+        "title": "Acciones",
+        "celdas": [
+            {"copy": "TICKER", "field": "ticker"},
+            {"copy": "EMPRESA", "field": "empresa"},
+            {"copy": "ULTIMA ENTRADA", "field": "ultima_entrada"},
+            {"copy": "CANTIDAD", "field": "cantidad"},
+            {"copy": "C. UNIDAD PROMEDIO", "field": "c_unidad_promedio"},
+            {"copy": "P. UNIDAD", "field": "precio_unidad"},
+            {"copy": "TOTAL COSTO", "field": "total_costo"},
+            {"copy": "TOTAL", "field": "total"},
+            {"copy": "% D", "field": "diferencia_porcentaje_dia"},
+            {"copy": "% T", "field": "diferencia_porcentaje_total"},
+            {"copy": "$ D", "field": "diferencia_precio_dia"},
+            {"copy":"$ T", "field": "diferencia_precio_total"}
+        ],
+        "acciones": [
+            {
+                "ticker": "FB",
+                "empresa": "Faceboook",
+                "ultima_entrada": "3 Mayo",
+                "cantidad": "10",
+                "total_costo": "$5.000",
+                "c_unidad_promedio": "$50",
+                "p_unidad": "$1000",
+                "total": "$50.000",
+                "porcentaje_diferencia": "30%",
+                "precio_diferencia": "$3.000"
+            }
+        ]
+    },
+    "sidebar": {
+        "actividades": {
+            "title": "Actividades recientes",
+            "items": [
+                {
+                    "ticker": "FB",
+                    "empresa": "Faceboook",
+                    "cantidad": 3,
+                    "total": 1000
+                }
+            ]
+        },
+        "stats": {
+            "title": "Otros stats",
+            "items": [
+                {
+                    "icon": "money",
+                    "copy": "Total comisiones",
+                    "number": "$5.000"
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,38 @@
+.select {
+    cursor: pointer;
+    display: inline-flex;
+    padding: 0.9rem 0.8rem;
+    align-items: flex-end;
+    transition: background $tt ease;
+    font-size: 1.2rem;
+
+    &:hover {
+        background: $dark_fifth;
+    }
+
+    &__secondary-copy {
+        margin-right: .4rem;
+        display: inline-block;
+    }
+
+    select {
+        background: none;
+        font-family: inherit;
+        color: inherit;
+        border: none;
+        font-weight: bold;
+        appearance: none;
+        width: 100%;
+        outline: none;
+        cursor: pointer;
+        z-index: 2;
+        position: relative;
+    }
+
+    img {
+        width: 0.9rem;
+        height: 0.6rem;
+        margin-left: 0.8rem;
+        margin-bottom: .5rem;
+    }
+}

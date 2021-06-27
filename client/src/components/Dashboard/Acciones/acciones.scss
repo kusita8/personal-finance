@@ -1,0 +1,30 @@
+.acciones {
+    margin-bottom: 5rem;
+
+    .table {
+        margin-top: 2.5rem;
+        font-size: 1rem;
+        font-weight: 600;
+        width: calc(100% - #{$dashboard_space});
+        position: relative;
+        z-index: 1;
+
+        td,
+        th {
+            text-align: center;
+            max-width: 153px;
+        }
+
+        .table__item td {
+            padding-right: 1.6rem;
+            padding-left: 1.6rem;
+            border-bottom: 1px solid $dark_seven;
+        }
+
+        &__titles {
+            th {
+                padding-bottom: 1.1rem;
+            }
+        }
+    }
+}

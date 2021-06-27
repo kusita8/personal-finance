@@ -1,0 +1,27 @@
+.input__options {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 100%;
+    max-height: 150px;
+    overflow: hidden;
+    overflow-y: scroll;
+    z-index: 1;
+    background: $white_main;
+    color: $dark_main;
+    transition: display 300ms ease;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity $tt ease, visibility $tt ease;
+
+    .input__option-elem {
+        padding: 1rem 0rem 1rem 1rem;
+        transition: background $tt ease;
+        cursor: pointer;
+        font-weight: bold;
+
+        &:hover {
+            background: $grey_main;
+        }
+    }
+}

@@ -1,0 +1,17 @@
+.icon-link {
+    padding: 1.8rem 4.4rem 1.8rem;
+    cursor: pointer;
+    transition: background $tt ease;
+
+    &:hover {
+        background: $dark_third;
+    }
+
+    &--active {
+        border-right: 0.1rem solid $white_main;
+    }
+
+    img {
+        height: 2.5rem;
+    }
+}

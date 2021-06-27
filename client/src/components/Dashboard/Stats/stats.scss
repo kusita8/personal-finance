@@ -1,0 +1,34 @@
+.stats {
+    margin-top: $space_top;
+
+    &__top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 3.7rem;
+        position: relative;
+
+        .stats__buttons {
+            display: flex;
+
+            &>* {
+                &:not(:first-child) {
+                    margin-left: 1.2rem;
+                }
+            }
+        }
+    }
+
+    &__bottom {
+        display: flex;
+
+        &>div {
+            flex-basis: 25%;
+
+            &:not(:first-of-type) {
+                margin-left: 2.2rem;
+            }
+        }
+
+    }
+}

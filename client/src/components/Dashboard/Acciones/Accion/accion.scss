@@ -1,0 +1,120 @@
+.table__item {
+    td {
+        padding-top: 1.2rem !important;
+        padding-bottom: 1.2rem !important;
+    }
+}
+
+.table__item {
+    cursor: pointer;
+
+    td {
+        background: $dark_fourth;
+        transition: background $tt ease;
+
+        &.table__icon {
+            padding: 1.2rem 1rem;
+        }
+    }
+
+    &:hover {
+        td {
+            background: $dark_six;
+        }
+    }
+
+    .ticker {
+        border-radius: 50%;
+        background: $grey_third;
+        height: 4rem;
+        width: 4rem;
+        line-height: 4.1rem;
+        font-size: .8rem;
+    }
+}
+
+.table__history {
+    transition: transform $tt ease;
+    width: 100%;
+    z-index: -1;
+
+    .history_wrapper {
+        max-width: none !important;
+        padding: 0 !important;
+        min-width: 100% !important;
+
+        table {
+            width: 100%;
+            display: block;
+            overflow: hidden;
+            transition: height $tt ease;
+
+            tbody {
+                display: table;
+                min-width: 100%;
+            }
+        }
+
+        td,
+        th {
+            background: $dark_seven;
+
+            &:first-of-type {
+                width: 5%;
+            }
+
+            &:last-of-type {
+                width: 48%;
+            }
+        }
+
+        td {
+            padding: 1rem 1.8rem 1rem;
+        }
+
+        th {
+            font-weight: 600;
+            padding-top: 1.2rem !important;
+            padding-bottom: .6rem !important;
+        }
+
+        .history__item {
+            .history__item-wrapper {
+                padding: 0;
+            }
+        }
+
+    }
+}
+
+.history-cell {
+    &--1 {
+        min-width: 100px;
+        padding: 0;
+        width: 100px !important;
+    }
+
+    &--2 {
+        min-width: 80px;
+        padding: 0;
+        width: 80px;
+    }
+
+    &--3 {
+        min-width: 80px;
+        padding: 0;
+        width: 80px;
+    }
+
+    &--4 {
+        min-width: 80px;
+        padding: 0;
+        width: 80px;
+    }
+
+    &--5 {
+        min-width: 80px;
+        padding: 0;
+        width: 80px !important;
+    }
+}
