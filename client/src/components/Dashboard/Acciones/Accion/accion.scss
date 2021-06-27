@@ -79,6 +79,13 @@
         }
 
         .history__item {
+
+            &:last-of-type {
+                td:not(.history__item-wrapper) {
+                    padding-bottom: 2rem;
+                }
+            }
+
             .history__item-wrapper {
                 padding: 0;
             }

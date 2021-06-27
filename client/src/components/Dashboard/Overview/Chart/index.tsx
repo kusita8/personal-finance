@@ -70,7 +70,7 @@ const ChartComponent: React.FunctionComponent<Props> = ({ data }) => {
                         hitRadius: 5,
                     }
                 }
-            }
+            },
         });
 
         setChart(newChart)
@@ -85,9 +85,11 @@ const ChartComponent: React.FunctionComponent<Props> = ({ data }) => {
 
 
     return (
-        <canvas
-            ref={chartRef}
-        ></canvas>
+        <div style={{ position: 'relative', maxWidth: '98%' }}>
+            <canvas
+                ref={chartRef}
+            ></canvas>
+        </div>
     );
 }
 

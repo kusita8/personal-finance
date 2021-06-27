@@ -22,37 +22,56 @@ interface Props {
 
 const Acciones: React.FunctionComponent<Props> = ({ data }) => {
 
+    const [activesortfield, setActiveSortField] = useState('')
     const [activeSort, setActiveSort] = useState(-1)
     const [sortDir, setSortDir] = useState(-1)
     const [sortedAcciones, setSortedAcciones] = useState<any>([])
 
     const { acciones } = useContext(AccionesContext)
 
-    const handleSort = (field: string, i: number) => {
+    const handleSort = (field: string, i: number, acciones?: any) => {
+        const items = acciones || [...sortedAcciones];
+        setActiveSortField(field);
 
         const sortAcciones = (a: any, b: any, dir = 1) => {
             if (typeof a[field] === 'string') {
-                return a[field] < b[field] ? -1 * dir : 1 * dir
+                const dateA = new Date(a[field]);
+
+                if (dateA.getTime()) {
+                    const dateB = new Date(b[field]);
+                    return dateA.getTime() < dateB.getTime() ? 1 * dir : -1 * dir
+                }
+
+                return a[field] < b[field] ? 1 * dir : -1 * dir
             } else {
                 return a[field] < b[field] ? 1 * dir : -1 * dir
             }
         }
 
         // si apreta dos veces
-        if (activeSort === i) {
-            setSortedAcciones([...sortedAcciones].sort((a: any, b: any) =>
-                sortAcciones(a, b, sortDir)))
+        if (i !== -1 && activeSort === i) {
+            setSortedAcciones(
+                items.sort((a: any, b: any) => sortAcciones(a, b, sortDir))
+            )
             setSortDir(sortDir * -1)
             return;
         }
 
         setActiveSort(i);
 
-        setSortedAcciones(sortedAcciones.sort((a: any, b: any) => sortAcciones(a, b)))
+        setSortedAcciones(items.sort((a: any, b: any) => sortAcciones(a, b)))
     };
 
     useEffect(() => {
-        setSortedAcciones(Object.values(acciones))
+        const newAcciones = Object.values(acciones);
+
+        console.log({ activesortfield });
+
+        if (activesortfield) {
+            handleSort(activesortfield, -1, newAcciones);
+        } else {
+            setSortedAcciones(newAcciones);
+        }
     }, [acciones])
 
     return (
@@ -65,7 +84,7 @@ const Acciones: React.FunctionComponent<Props> = ({ data }) => {
                         {data.celdas.map((el, i) => (
                             <th key={el.field}>
                                 <Button
-                                    icon={activeSort === i ? "chevron_down" : ''}
+                                    icon={activesortfield === el.field ? "chevron_down" : ''}
                                     type="th"
                                     copy_main={el.copy}
                                     onClick={() => handleSort(el.field, i)}

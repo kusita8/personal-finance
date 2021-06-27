@@ -39,7 +39,7 @@ const HistorialItemForm: React.FunctionComponent<Props> = ({ data, ticker, index
             ...cleanedForm,
             fecha: {
                 copy: cleanedForm.fecha,
-                total: new Date(cleanedForm.fecha).getTime()
+                time: new Date(cleanedForm.fecha).getTime()
             },
         }
 

@@ -46,8 +46,8 @@ const AccionesState: FC = (props) => {
             if (localStorageState) {
                 savedState = JSON.parse(localStorageState)
             } else {
-                savedState = await getBackupData()
             }
+            savedState = await getBackupData()
 
             if (savedState) {
                 // actualizar totales de hoy
@@ -343,7 +343,7 @@ const AccionesState: FC = (props) => {
     const editarAccionHistorialItem = (nuevoHistorialItem: any, ticker: any, position: any) => {
 
         const accion = { ...state.acciones[ticker] } as AccionType;
-        const historialViejo = accion.historial[position] as HistorialAccionItem
+        const historialViejo = accion.historial[position] as HistorialAccionItem;
 
         const handleItemValues = (num1: number, num2: number) => {
             if (num1 < num2 || num1 > num2) {
@@ -355,7 +355,8 @@ const AccionesState: FC = (props) => {
         const historialDiferenciaCostoTotal = handleItemValues(
             nuevoHistorialItem.costo_total,
             historialViejo.costo_total
-        )
+        );
+
         const historialDiferencia = {
             fecha: nuevoHistorialItem.fecha,
             cantidad: handleItemValues(
@@ -372,10 +373,11 @@ const AccionesState: FC = (props) => {
                 historialViejo.comision
             ),
             total_accion: accion.total + historialDiferenciaCostoTotal
-        }
+        };
 
-        accion.historial = accion.historial.filter((el, i) => i !== position)
-        accion.historial = sortHistorial([...accion.historial, nuevoHistorialItem])
+        const filteredHistorial = accion.historial.filter((el, i) => i !== position);
+
+        accion.historial = sortHistorial([...filteredHistorial, nuevoHistorialItem]);
 
         actualizarTotales(historialDiferencia)
         actualizarActividadesRecientes(accion, nuevoHistorialItem.costo_total, nuevoHistorialItem.cantidad)

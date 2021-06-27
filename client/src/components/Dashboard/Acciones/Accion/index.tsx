@@ -57,7 +57,7 @@ const Accion: React.FunctionComponent<Props> = ({ data }) => {
             </tr>
             <tr className={`table__history table__history--${history ? 'active' : 'hidden'}`}>
                 <td colSpan={13} className="history_wrapper">
-                    <table style={{ height: history ? `${27 + 48 * data.historial.length}px` : '0px' }}>
+                    <table style={{ height: history ? `${42 + 48 * data.historial.length}px` : '0px' }}>
                         <tbody>
                             <tr className="history__titles">
                                 <th></th>
