@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import AccionesContext from '../../../../../context/acciones/accionesContext';
-import { formatNumber, convertToNumber } from '../../../../../utils';
+import { convertToNumber } from '../../../../../utils';
 import { Input } from '../../../../@ui';
 import './historialitemform.scss'
 

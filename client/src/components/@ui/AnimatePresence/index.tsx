@@ -70,7 +70,7 @@ const AnimatePresence = memo(({ delay, from, to, children }: Props) => {
 
         }
 
-    }, [children])
+    }, [children]) // eslint-disable-line react-hooks/exhaustive-deps
 
     return (<><div style={{ overflow: 'hidden' }} ref={animate}>{nodes}</div></>);
 })

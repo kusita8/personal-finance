@@ -65,14 +65,12 @@ const Acciones: React.FunctionComponent<Props> = ({ data }) => {
     useEffect(() => {
         const newAcciones = Object.values(acciones);
 
-        console.log({ activesortfield });
-
         if (activesortfield) {
             handleSort(activesortfield, -1, newAcciones);
         } else {
             setSortedAcciones(newAcciones);
         }
-    }, [acciones])
+    }, [acciones])// eslint-disable-line react-hooks/exhaustive-deps
 
     return (
         <div className="acciones">

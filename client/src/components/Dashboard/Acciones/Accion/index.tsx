@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { formatNumber } from '../../../../utils';
-import { AccionType, FormatNumberType } from '../../../@types';
+import { AccionType } from '../../../@types';
 import { Button } from '../../../@ui'
 import HistorialItem from '../HistorialItem';
 import './accion.scss'

@@ -3,7 +3,6 @@ import { stopPropagation } from '../../../../utils';
 import { Button, Input } from '../../../@ui';
 import './statsform.scss'
 import cedears from '../../../../static/data/tickers.json'
-import { FormItems } from '../../../@types';
 
 import AccionesContext from '../../../../context/acciones/accionesContext'
 

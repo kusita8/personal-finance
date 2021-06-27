@@ -1,7 +1,32 @@
 import { useReducer, FC, useEffect } from 'react';
-import { AccionesStateType, AccionType, FormItems, HistorialAccionItem, ActividadRecienteType, HistorialTotalItem } from '../../components/@types';
-import { cleanReceivedNumber, obtenerFecha, nuevoHistorial, calcularPorcentaje, sortHistorial, convertToNumber, calcularPorcentajeDiferencia } from '../../utils';
-import { AGREGAR_ACCION, ACTUALIZAR_TOTALES, ACTUALIZAR_ACTIVIDADES_RECIENTES, CAMBIAR_MONEDA, HYDRATE_STATE, ACTUALIZAR_PRECIOS, LOADING_ACTUALIZAR_PRECIOS, UNLOADING_ACTUALIZAR_PRECIOS, ACTUALIZAR_ACCIONES, ACTUALIZAR_ACCION, NEW_DAY } from '../type';
+import {
+    AccionesStateType,
+    AccionType,
+    FormItems,
+    HistorialAccionItem,
+    ActividadRecienteType
+} from '../../components/@types';
+import {
+    cleanReceivedNumber,
+    obtenerFecha,
+    nuevoHistorial,
+    calcularPorcentaje,
+    sortHistorial,
+    calcularPorcentajeDiferencia
+} from '../../utils';
+import {
+    AGREGAR_ACCION,
+    ACTUALIZAR_TOTALES,
+    ACTUALIZAR_ACTIVIDADES_RECIENTES,
+    CAMBIAR_MONEDA,
+    HYDRATE_STATE,
+    ACTUALIZAR_PRECIOS,
+    LOADING_ACTUALIZAR_PRECIOS,
+    UNLOADING_ACTUALIZAR_PRECIOS,
+    ACTUALIZAR_ACCIONES,
+    ACTUALIZAR_ACCION,
+    NEW_DAY
+} from '../type';
 import AccionesContext from './accionesContext'
 import AccionesReducer from './accionesReducer'
 import axios from 'axios'

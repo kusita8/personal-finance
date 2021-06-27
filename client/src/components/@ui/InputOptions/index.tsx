@@ -1,4 +1,3 @@
-import { FormItems } from '../../@types';
 import './inputoptions.scss'
 
 export interface Props {
@@ -11,7 +10,7 @@ export interface Props {
 const InputOptions: React.FunctionComponent<Props> = ({ options, value, onOptionClick }) => {
 
     const filterOptions = (option: string) => !value || typeof value === 'number' ? true :
-        option.slice(0, value.length).toLocaleLowerCase() == value.toLocaleLowerCase();
+        option.slice(0, value.length).toLocaleLowerCase() === value.toLocaleLowerCase();
 
     return (
         <div className="input__options">

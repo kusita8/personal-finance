@@ -2,7 +2,7 @@ import { Action, AccionesStateType } from '../../components/@types'
 import { AGREGAR_ACCION, ACTUALIZAR_TOTALES, ACTUALIZAR_ACTIVIDADES_RECIENTES, CAMBIAR_MONEDA, HYDRATE_STATE, ACTUALIZAR_PRECIOS, LOADING_ACTUALIZAR_PRECIOS, UNLOADING_ACTUALIZAR_PRECIOS, ACTUALIZAR_ACCIONES, ACTUALIZAR_ACCION, NEW_DAY } from '../type'
 
 
-export default (state: AccionesStateType, action: Action) => {
+export default function Reducer(state: AccionesStateType, action: Action) {
     switch (action.type) {
 
         case HYDRATE_STATE:

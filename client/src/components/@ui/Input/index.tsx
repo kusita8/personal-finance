@@ -1,7 +1,6 @@
 import React from 'react'
 import { InputOptions } from '..'
 import './input.scss'
-import { FormItems } from '../../@types'
 
 export interface Props {
     placeholder?: string;

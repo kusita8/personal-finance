@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react'
-import { SectionTitle, Button, Card, Input, Select } from '../../@ui'
+import { SectionTitle, Button, Card, Select } from '../../@ui'
 import { ButtonType, CardType } from '../../@types'
 import './stats.scss'
 import { listenOutsideClick, stopPropagation } from '../../../utils'

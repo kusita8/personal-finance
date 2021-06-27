@@ -44,15 +44,15 @@ export const formatNumberDots = (num: string | number, type?: FormatNumberType) 
     if (type === 'porcentaje') {
         return `${text}%`
     } else if (type === 'number_with_sign') {
-        return `${num < 0 ? '-' : '+'}$${text.replace(/\-/, '')}`
+        return `${num < 0 ? '-' : '+'}$${text.replace(/-/, '')}`
     } else if (type === 'porcentaje_with_sign')
-        return `${num < 0 ? '-' : '+'}${text.replace(/\-/, '')}%`
+        return `${num < 0 ? '-' : '+'}${text.replace(/-/, '')}%`
     else {
-        return `${num < 0 ? '-' : ''}$${text.replace(/\-/, '')}`
+        return `${num < 0 ? '-' : ''}$${text.replace(/-/, '')}`
     }
 }
 
-export const cleanReceivedNumber = (num: string) => parseFloat(num.replace(/\./, '').replace(/\,/, '.'))
+export const cleanReceivedNumber = (num: string) => parseFloat(num.replace(/\./, '').replace(/,/, '.'))
 
 export const nuevoHistorial = (total: any, historiales: any) => {
     const fecha = obtenerFecha();

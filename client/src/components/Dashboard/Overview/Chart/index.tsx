@@ -81,7 +81,7 @@ const ChartComponent: React.FunctionComponent<Props> = ({ data }) => {
             }
         }
 
-    }, [data])
+    }, [data]) // eslint-disable-line react-hooks/exhaustive-deps
 
 
     return (
