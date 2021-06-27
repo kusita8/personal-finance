@@ -83,7 +83,7 @@ const AccionesState: FC = (props) => {
 
         const saveToFile = async () => {
             try {
-                const res = await axios.post('http://localhost:3001/save', state)
+                await axios.post('http://localhost:3001/save', state)
             } catch (e) {
                 console.log(e)
             }

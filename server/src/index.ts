@@ -19,7 +19,6 @@ app.post('/save', (req, res) => {
 
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-    // GUARDAR A UN NUEVO ARCHIVO CADA VEZ QUE RECIBO DATA
     const d = new Date()
 
     const filename = `${d.getDate()}-${months[d.getMonth()]}-${d.getFullYear()} ${d.getHours()}:${d.getMinutes()}`
@@ -70,13 +69,11 @@ app.get('/backup', (req, res) => {
 })
 
 app.get('/clear', (req, res) => {
-    fs.unlinkSync('backup-data.json')
-
-    res.send('cleared')
+    fs.rmdirSync('data', { recursive: true });
+    res.send('cleared');
 })
 
 app.post('/obtener-precios', async (req: express.Request, res) => {
-    // const data = await scrape();
     const { data } = req.body;
 
     try {

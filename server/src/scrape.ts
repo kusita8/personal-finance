@@ -1,6 +1,5 @@
 import puppeteer from 'puppeteer'
 
-
 export const scrape = async (tickers = ['AAPL', 'FB']) => {
 
     const browser = await puppeteer.launch({
