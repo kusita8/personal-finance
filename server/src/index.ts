@@ -1,6 +1,7 @@
 import express from 'express'
 import fs from 'fs'
 import { scrape } from './scrape'
+var request = require('request');
 
 const cors = require('cors');
 
@@ -76,14 +77,51 @@ app.get('/clear', (req, res) => {
 app.post('/obtener-precios', async (req: express.Request, res) => {
     const { data } = req.body;
 
+    const getAcciones = () => new Promise((resolve) => {
+        request({
+            url: "https://www.cohen.com.ar/Financial/ListCotizacion",
+            method: "POST",
+            headers: {
+                "Cache-Control": 'no-cache',
+                "content-type": "application/json",
+                "Accept": '*/*',
+            },
+            body: JSON.stringify({
+                "grupo": "CEDEARS",
+                "especieTipo": "",
+                "campoOrden": "SIMBOLO",
+                "sentidoOrden": "ASC",
+                "lenguajeCultura": "es-AR",
+            })
+        }, (_: any, __: any, body: any) => {
+            return resolve(JSON.parse(body))
+        })
+    })
+
     try {
-        const cotizaciones = await scrape(data);
+        const acciones = await getAcciones() as any;
+
+        const cotizaciones = [] as any[];
+
+        acciones.CotizacionList.forEach((el: any) => {
+            const ticker = el.Simbolo.split(' - ')[0];
+
+            if (data.includes(ticker)) {
+                const cotizacion = el.PrecioUltimo;
+                const variacion = el.Variacion.toFixed(2) * 1;
+
+                cotizaciones.push({
+                    ticker,
+                    cotizacion,
+                    variacion
+                });
+            }
+        })
 
         res.status(200).json({
             status: 'success',
             data: cotizaciones
         });
-
     } catch (e) {
         res.status(400).json({
             status: 'error',
