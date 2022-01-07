@@ -52,8 +52,6 @@ export const formatNumberDots = (num: string | number, type?: FormatNumberType) 
     }
 }
 
-export const cleanReceivedNumber = (num: string) => parseFloat(num.replace(/\./, '').replace(/,/, '.'))
-
 export const nuevoHistorial = (total: any, historiales: any) => {
     const fecha = obtenerFecha();
 

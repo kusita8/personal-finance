@@ -7,7 +7,6 @@ import {
     ActividadRecienteType
 } from '../../components/@types';
 import {
-    cleanReceivedNumber,
     obtenerFecha,
     nuevoHistorial,
     calcularPorcentaje,
@@ -25,7 +24,8 @@ import {
     UNLOADING_ACTUALIZAR_PRECIOS,
     ACTUALIZAR_ACCIONES,
     ACTUALIZAR_ACCION,
-    NEW_DAY
+    NEW_DAY,
+    BORRAR_ACCION
 } from '../type';
 import AccionesContext from './accionesContext'
 import AccionesReducer from './accionesReducer'
@@ -104,17 +104,18 @@ const AccionesState: FC = (props) => {
     }, [])
 
     useEffect(() => {
-        localStorage.setItem('state', JSON.stringify(state))
-
-        const saveToFile = async () => {
+        const saveState = async () => {
             try {
+                localStorage.setItem('state', JSON.stringify(state))
                 await axios.post('http://localhost:3001/save', state)
             } catch (e) {
                 console.log(e)
             }
         }
 
-        saveToFile()
+        if (state.total_cuenta !== 0) {
+            saveState();
+        }
     }, [state])
 
     const agregarAccion = (data: FormItems) => {
@@ -165,11 +166,19 @@ const AccionesState: FC = (props) => {
 
         const nuevaAccion = actualizarAccion(accion, historialItem)
 
-
-        dispatch({
-            type: AGREGAR_ACCION,
-            payload: nuevaAccion
-        })
+        if (nuevaAccion.cantidad === 0) {
+            const nuevasAcciones = { ...state.acciones };
+            delete nuevasAcciones[nuevaAccion.ticker]
+            dispatch({
+                type: BORRAR_ACCION,
+                payload: nuevasAcciones
+            })
+        } else {
+            dispatch({
+                type: AGREGAR_ACCION,
+                payload: nuevaAccion
+            })
+        }
 
         actualizarTotales(historialItem)
         actualizarActividadesRecientes(accion, totalCompra, +data.cantidad)
@@ -226,7 +235,7 @@ const AccionesState: FC = (props) => {
 
     const cambiarMoneda = (moneda: 'dolares' | 'pesos') => {
         // TODO: RECIBIR DATA DE API
-        const dolar = 160;
+        const dolar = 180;
 
         const excludedKeys = ['cantidad', 'diferencia_porcentaje_total', 'diferencia_porcentaje_dia', 'porcentaje']
 
@@ -292,8 +301,8 @@ const AccionesState: FC = (props) => {
 
         cotizaciones.forEach((el: any) => {
             const accion = nuevasAcciones[el.ticker] as AccionType;
-            const cleanedCotizacion = cleanReceivedNumber(el.cotizacion);
-            const cleanedVariacion = cleanReceivedNumber(el.variacion);
+            const cleanedCotizacion = el.cotizacion;
+            const cleanedVariacion = el.variacion;
             const nuevoTotalAccion = accion.cantidad * cleanedCotizacion;
             const diferenciaPrecioTotal = nuevoTotalAccion - accion.total_costo
             nuevoTotalCuenta += nuevoTotalAccion;

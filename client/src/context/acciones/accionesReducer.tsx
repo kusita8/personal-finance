@@ -1,5 +1,5 @@
 import { Action, AccionesStateType } from '../../components/@types'
-import { AGREGAR_ACCION, ACTUALIZAR_TOTALES, ACTUALIZAR_ACTIVIDADES_RECIENTES, CAMBIAR_MONEDA, HYDRATE_STATE, ACTUALIZAR_PRECIOS, LOADING_ACTUALIZAR_PRECIOS, UNLOADING_ACTUALIZAR_PRECIOS, ACTUALIZAR_ACCIONES, ACTUALIZAR_ACCION, NEW_DAY } from '../type'
+import { AGREGAR_ACCION, ACTUALIZAR_TOTALES, ACTUALIZAR_ACTIVIDADES_RECIENTES, CAMBIAR_MONEDA, HYDRATE_STATE, ACTUALIZAR_PRECIOS, LOADING_ACTUALIZAR_PRECIOS, UNLOADING_ACTUALIZAR_PRECIOS, ACTUALIZAR_ACCIONES, ACTUALIZAR_ACCION, NEW_DAY, BORRAR_ACCION } from '../type'
 
 
 export default function Reducer(state: AccionesStateType, action: Action) {
@@ -13,6 +13,12 @@ export default function Reducer(state: AccionesStateType, action: Action) {
             return {
                 ...state,
                 acciones: { ...state.acciones, [action.payload.ticker]: action.payload },
+            }
+
+        case BORRAR_ACCION:
+            return {
+                ...state,
+                acciones: action.payload,
             }
 
         case ACTUALIZAR_TOTALES:

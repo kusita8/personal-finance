@@ -107,7 +107,7 @@ app.post('/obtener-precios', async (req: express.Request, res) => {
             const ticker = el.Simbolo.split(' - ')[0];
 
             if (data.includes(ticker)) {
-                const cotizacion = el.PrecioUltimo;
+                const cotizacion = el.PrecioUltimo * 1;
                 const variacion = el.Variacion.toFixed(2) * 1;
 
                 cotizaciones.push({
